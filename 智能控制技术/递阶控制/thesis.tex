@@ -1,0 +1,357 @@
+\PassOptionsToPackage{quiet}{fontspec}
+\documentclass[12pt,a4paper,UTF8]{article}
+\usepackage{thesis} % 格式控制
+\usepackage{indentfirst}
+\setlength{\parindent}{2em} % 控制首行缩进  
+\addtolength{\parskip}{3pt} % 控制段落距离  
+\onehalfspacing % 1.5倍行距  
+\graphicspath{{./figures/}} % 指定图片所在文件夹  
+
+
+\classname{智能控制技术}  % 设置课程名称
+\makepagestyle{}{\printclassname ~实验报告}
+
+
+
+
+\begin{document}
+\maketitlepage{递阶控制}{教4-302}{董佳泽}{3230104322}{\today}{刘山} %封面页 
+
+\maketoc    %目录页
+\section{引言}
+
+随着多机器人技术的发展，其在物流、搜救、制造等领域的应用日益广泛。编队控制是多机器人协同的核心技术之一。然而，面对动态环境、机器人异构性、非完整约束以及通信限制，设计一个鲁棒、高效的控制系统极具挑战性。递阶控制提供了一种“分而治之”的有效思路，它将复杂的全局问题分解为多个更小、更易于管理的子问题，并通过协调策略确保局部最优解能够汇聚为全局最优解。
+
+本报告以三台差动机器人跟踪参考轨迹并维持等边三角形编队为目标，构建一个三级递阶控制架构，旨在最小化编队跟踪误差并保证系统稳定性。
+
+\section{问题分析与系统建模}
+\subsection{问题分析}
+\begin{problem}
+考虑3台异构差动驱动机器人（R1、R2、R3），需在动态环境中协同完成编队跟踪任务。 系统需满足：
+\begin{itemize}
+  \item \textbf{编队目标}：形成并维持等边三角形队形（边长 0.5 米），同时跟踪参考轨迹。
+  \item \textbf{动态约束}：机器人运动受非完整约束（如差动驱动，速度限制），需避免相互碰撞 及环境障碍物。
+  \item \textbf{总体目标}：最小化编队跟踪误差（位置和队形误差），并保证系统稳定性。
+\end{itemize}
+\begin{enumerate}
+  \item 进行系统分解与层级设计
+  \begin{itemize}
+    \item 明确组织级、协调级、执行级的功能划分,画出该递阶控制系统的分级系统结构图。
+    \item 定义各子系统的局部决策变量和目标函数。
+  \end{itemize}
+  \item 分别采用以下两种协调方法进行协调策略设计：
+  \begin{itemize}
+    \item 关联预测协调原则（直接干预法）
+    \item 关联平街协调原则（目标协调法）
+  \end{itemize}
+\end{enumerate}
+（提示：可以考虑将机器人间的相对位姿作为关键关联变量）
+\end{problem}
+
+本任务旨在设计一个针对多移动机器人编队的递阶控制系统，通过对任务需求的深入分析，可以将该控制任务归纳为以下几个核心维度的分析：
+\begin{enumerate}
+  \item \textbf{被控对象特性}：
+  
+  本系统由3台异构差动驱动机器人（R1、R2、R3）组成，具有显著的\textbf{异构性}和\textbf{非完整性}。
+  \begin{itemize}
+    \item \textbf{异构性}：三台机器人在物理参数（如轮径、轴距）、运动能力（最大线速度 $v_{max}$、最大角速度 $\omega_{max}$）以及感知能力上可能存在差异。这意味着控制系统不能简单地将同一控制指令广播给所有机器人，而必须根据个体的具体约束进行差异化的指令分配与协调。
+    \item \textbf{运动学约束}： 差动驱动机器人无法实现侧向平移（即 $\dot{y}_R \neq 0$ 需伴随转向），其运动受到非完整约束方程 $\dot{x}_i \sin\theta_i - \dot{y}_i \cos\theta_i = 0$ 的限制。这要求底层控制器在追踪轨迹时，必须同时通过调整线速度和角速度来逼近目标，增加了控制的非线性难度。
+  \end{itemize}
+  \item \textbf{任务目标的耦合性}：
+  
+  系统面临双重控制目标，且两者在数学上是强耦合的：
+
+  \begin{itemize}
+    \item \textbf{轨迹跟踪}：编队中心需尽可能精确地跟随预设的参考轨迹 $p_r(t)$。
+    \item \textbf{队形维持}:机器人之间需始终保持边长为 $d^* = 0.5$ 米的等边三角形几何构型。
+    \item \textbf{耦合冲突}：在通过大曲率弯道或规避障碍物时，严格维持队形可能导致部分机器人（如外侧机器人）速度饱和或路径受阻；反之，优先保证跟踪精度又可能破坏队形。如何在动态环境中平衡这两个相互竞争的目标，是协调级（Level 2）的核心任务。
+
+  \end{itemize}
+  \item \textbf{环境的动态性与避障约束}：
+  
+  任务设定在\textbf{动态环境}中，这对系统的鲁棒性和实时性提出更高要求：
+  \begin{itemize}
+    \item \textbf{机器人间避障}：队形收缩或变换时，必须防止机器人相互碰撞，即满足 $||p_i - p_j|| > d_{safe}$ 的硬约束。
+    \item \textbf{感知局限性}：在动态环境的假设下，机器人不能依靠全局相机获取全局状态，只能使用机载传感器局部环境信息。 
+  \end{itemize}
+  \item \textbf{递阶控制的必要性}：
+  
+  综上所述，该问题是一个典型的高纬、非线性、强耦合的多目标优化问题。若采用传统的集中式控制，计算量将随机器人数量呈指数级增长，难以满足动态环境下的实时性要求；若采用完全的分布式控制，则难以保证全局队形的收敛与一致性。
+  因此，引入\textbf{三级递阶控制架构}是解决此问题的有效途径：
+  \begin{itemize}
+    \item \textbf{组织级}处理任务规划的宏观决策；
+    \item \textbf{协调级}解决子系统间的耦合与冲突（关联处理）；
+    \item \textbf{执行级}负责高频的局部运动控制与避障。
+  \end{itemize}
+\end{enumerate}
+\subsection{机器人运动学模型}
+考虑第 $i$ 台差动驱动机器人（$i=1, 2, 3$），其位姿为 $p_i = [x_i, y_i, \theta_i]^T$，其中 $(x_i, y_i)$ 是其在全局坐标系下的位置，$\theta_i$ 是其航向角。其运动学模型可表示为：
+
+$$
+\dot{p}_i = \begin{bmatrix} \dot{x}_i \\ \dot{y}_i \\ \dot{\theta}_i \end{bmatrix} = \begin{bmatrix} \cos(\theta_i) & 0 \\ \sin(\theta_i) & 0 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} v_i \\ \omega_i \end{bmatrix}
+$$
+
+其中 $u_i = [v_i, \omega_i]^T$ 是机器人的控制输入（线速度和角速度），并满足约束 $|v_i| \le v_{max}$ 和 $|\omega_i| \le \omega_{max}$。
+\subsection{编队跟踪目标}
+\begin{enumerate}
+  \item \textbf{跟踪目标}：设编队中心 $p_c = \frac{1}{3} \sum_{i=1}^3 [x_i, y_i]^T$。给定一条参考轨迹 $p_r(t) = [x_r(t), y_r(t)]^T$，目标是最小化跟踪误差 $||p_c(t) - p_r(t)||$。
+  \item \textbf{编队目标}：机器人需形成边长为 $d^* = 0.5$ 米的等边三角形。这定义了机器人间的相对距离约束：
+   $$
+   ||p_i - p_j|| = d^* \quad \forall i \neq j
+   $$
+   其中 $p_i = [x_i, y_i]^T$。
+\end{enumerate}
+\subsection{总体优化目标}
+系统的总体目标是最小化\textbf{编队跟踪误差}和\textbf{队形误差}的加权和。为确保\textbf{系统的稳定性}，还将线速度和角速度加入到总体优化目标中，防止线速度和角速度过大。最终得到系统总体目标优化函数：
+
+$$
+J_{global} = \min_{u_1, u_2, u_3} \int_{0}^{T} \left( w_t ||p_c - p_r||^2 + \sum_{i<j} w_f (||p_i - p_j|| - d^*)^2 + \sum_{i=1}^3 w_u ||u_i||^2 \right) dt
+$$
+
+
+
+
+同时系统需要满足运动学约束、控制约束以及避障约束（包括机器人间碰撞和与环境障碍物碰撞）。
+
+机器人间相互碰撞通过保持相对距离避免，与环境的碰撞通过组织级的路径规划来避免。
+\clearpage % 换页
+\section{设计原则}
+递阶控制系统在结构上遵循精度随智能降低而提高的IPDI原理，从而寻求系统的正确决策与控制序列，使得系统的总熵为最小。
+
+结构示意如图\ref{IPDI}所示。
+    \begin{figure}[!htbp]
+        \centering
+        \includegraphics[width=0.5\textwidth]{递阶控制——IPDI.png}
+        \caption{递阶控制结构示意图}
+        \label{IPDI}
+    \end{figure}
+
+从图中可以看出，根据IPDI原理，递阶控制系统的设计应当遵守以下原则：
+\begin{enumerate}
+  \item \textbf{组织级}：位于控制系统的最上层，拥有最高的智能和最低的精度。可以通过人机接口与用户进行交互，拥有执行最高决策的控制功能。
+  \item \textbf{协调级}：相较于组织级，精度提高，智能降低。通过分派器和协调器来保证和维持执行级中各控制器的正常运行。
+  \item \textbf{执行级}：智能程度最低，但是控制精度最高。可以通过常规的优化控制方法来直接控制局部过程并完成子任务。
+\end{enumerate}
+
+这样的递阶控制结构将整个复杂系统的智能从高到低进行了一次分解，平衡了层级内的智能与精度，从而使多机器人能够精准、高效地执行任务。
+\clearpage
+\section{系统分解与层级设计}
+通过将复杂的全局问题 $J_{global}$ 分解为一个三级递阶控制结构：组织级、协调级和执行级，我们可以对这三个层级分别进行设计。
+
+\subsection{各层级功能划分}
+\begin{enumerate}
+  \item \textbf{组织级}：
+  \begin{itemize}
+    \item \textbf{目标}：维持队形并跟踪参考轨迹、实现机器人避障
+    \item \textbf{任务}：
+    \begin{itemize}
+      \item \textbf{规划决策}：接收参考路径$p_r(t)$和边长$d^*$ ，根据宏观环境信息对 $p_r(t)$进行微调。
+      \item \textbf{指令分解}：将全局目标分解为对应的协调级指令并下发。
+    \end{itemize}
+    \item \textbf{技术}：
+    \begin{itemize}
+      \item \textbf{Boltzmann机神经网络}：用于学习和优化决策。
+      \item \textbf{语言决策树}：用于基于规则的逻辑推理。
+    \end{itemize}
+  \end{itemize}
+  \item \textbf{协调级}：
+    \begin{itemize}
+    \item \textbf{目标}：负责协调多个机器人子系统间的关联，确保它们协同工作以达成组织级的目标。
+    \item \textbf{任务}：
+    \begin{itemize}
+      \item \textbf{任务协调}：接收来自组织级的编队目标和参考轨迹，根据全局目标，为每个机器人生成一个协调后的参考状态$p_i^{coord}(t)$。
+      \item \textbf{信息传递}：接收来自执行级传感器反馈的信息，传递到组织级。接受组织级的指令，协调后下发到执行级。
+    \end{itemize}
+    \item \textbf{技术}：
+    \begin{itemize}
+      \item \textbf{Petri网翻译器}：协调优化控制信号
+    \end{itemize}
+  \end{itemize}
+  \item \textbf{执行级}：
+    \begin{itemize}
+    \item \textbf{目标}：由三个独立的机器人子系统（R1, R2, R3）组成，负责具体的控制执行。
+    \item \textbf{任务}：
+    \begin{itemize}
+      \item \textbf{任务执行}：接收来自协调级的协调指令 $p_i^{coord}(t)$，在满足自身运动学约束和控制约束的前提下，最小化对其协调指令的跟踪误差。
+      \item \textbf{数据反馈}：通过IMU等传感器获取实时数据，利用控制算法优化自身控制，同时将反馈数据向上传递。
+    \end{itemize}
+    \item \textbf{技术}：
+    \begin{itemize}
+      \item \textbf{PID控制}：使用传统的PID算法控制机器人的线速度和角速度。
+    \end{itemize}
+    \item \textbf{传感器}：
+    \begin{itemize}
+      \item \textbf{里程计}：获取机器人移动的路程信息。
+      \item \textbf{IMU}：获取机器人的加速度和速度信息，与里程计相结合，判断机器人在3维地图中的位置。
+      \item \textbf{RGB-D相机}：采用深度相机获取机器人相对位姿状态，并对动态环境进行三维建图。
+      \item \textbf{激光雷达}：与RGB-D相机配合，共同对环境进行三维建图，辅助避障功能的执行。
+    \end{itemize}
+  \end{itemize}
+\end{enumerate}
+\subsection{递阶控制系统结构图}
+根据上述设计，可以画出整个系统的递阶控制系统结构图（在PDF中图片比较模糊，高清的图片已在附件中给出）。
+    \begin{figure}[!htbp]
+        \centering
+        \includegraphics[width=1\textwidth]{structure.png}
+        \caption{递阶控制系统结构图}
+        \label{structure}
+    \end{figure}
+
+
+\clearpage
+\subsection{子系统局部决策与目标函数}
+\begin{enumerate}
+  \item \textbf{组织级}：
+  \begin{itemize}
+    \item \textbf{决策变量}：全局参考轨迹 $p_r(t)$，编队参数 $d^*$。
+    \item \textbf{目标函数}： $J_{org}$（最小化任务时间、最大化路径平滑度等，根据任务实际需求进行选取）。
+  \end{itemize}
+  \item \textbf{协调级}：
+    \begin{itemize}
+    \item \textbf{决策变量}：“关联预测”中为关联变量$p_j^p$，“关联平衡”中为拉格朗日乘子$\lambda{ij}$。
+    \item \textbf{目标函数}：最小化全局目标$J_{global}$。
+  \end{itemize}
+  \item \textbf{执行级}：
+    \begin{itemize}
+    \item \textbf{决策变量}：局部控制输入$u_i = [v_i, \omega_i]$。
+    \item \textbf{目标函数}：最小化对协调指令的控制误差，同时考虑控制成本（线速度与角速度）。
+    $$    J_i = \min_{u_i} \int_{0}^{T} \left( w_p ||p_i(t) - p_i^{coord}(t)||^2 + w_u ||u_i(t)||^2 \right) dt
+    $$
+    \item \textbf{约束}：$\dot{p}_i = f(p_i, u_i)$， $|v_i| \le v_{max}$， $|\omega_i| \le \omega_{max}$。
+  \end{itemize}
+\end{enumerate}
+\clearpage
+\section{协调策略设计}
+为了简化设计，可以将全局变量$J_{global}$分解为可分离的局部变量和关联项。
+
+令 $p_i$ 为子系统 $i$ 的状态（位置）。
+
+$$
+J_{global} = \sum_{i=1}^3 f_i(p_i) + \sum_{i<j} g_{ij}(p_i, p_j)
+$$
+
+其中：
+\begin{itemize}
+  \item $f_i(p_i) = w_t' ||p_i - p_i^d||^2$ （$p_i^d$ 是根据 $p_r$ 和队形计算得出的 $i$ 的期望位置）。这是局部的跟踪目标。
+  \item $g_{ij}(p_i, p_j) = w_f (||p_i - p_j|| - d^*)^2$。这是描述子系统 $i$ 和 $j$ 之间关联的编队目标。
+\end{itemize}
+
+在这里，我们选择$p_j$（其他机器人的位置）作为系统$i$的关联变量。
+\subsection{关联预测协调原则}
+\begin{enumerate}
+  \item \textbf{原理}：协调级预测所有子系统间的关联变量的值（对于系统$i$，预测$p_j$，$p_k$），并将这些预测值作为固定参数发送给各个子系统。各子系统在给定这些预测值的情况下，\textbf{独立地优化自己的局部目标}。协调级根据子系统的优化结果更新预测值，并迭代此过程直至收敛。
+  \item \textbf{算法流程}：
+  \begin{itemize}
+    \item \textbf{Step 1：预测}
+    
+    协调级预测关联变量的值。在第 $k$ 次迭代，预测 $p_j^p(k)$ 和 $p_k^p(k)$（例如，使用上一次迭代的结果 $p_j^*(k-1)$）。
+    \item \textbf{Step 2：局部优化}
+    
+    协调级将预测值 $p_j^p(k)$ 和 $p_k^p(k)$ 发送给子系统 $i$（$i=1, 2, 3$）。  
+  
+    子系统 $i$ 求解其局部优化问题 $J_i$（此时 $p_j$ 和 $p_k$ 被视为常数 $p_j^p$ 和 $p_k^p$）：
+    $$
+    J_i(p_i | p_j^p, p_k^p) = \min_{p_i} \left( f_i(p_i) + g_{ij}(p_i, p_j^p) + g_{ik}(p_i, p_k^p)  \right)
+    $$
+    即：
+    $$
+    \min_{p_i} \left( w_t' ||p_i - p_i^d||^2 + w_f (||p_i - p_j^p|| - d^*)^2 + w_f (||p_i - p_k^p|| -   d^*)^2 \right)
+    $$
+  子系统 $i$ 求解得到其最优解 $p_i^*(k)$，并将其上报给协调级。
+    \item \textbf{Step 3：更新与收敛判断}
+    
+    协调级收集所有 $p_i^*(k)$。  
+    
+    检查收敛性：计算预测误差 $e_i(k) = p_i^*(k) - p_i^p(k)$
+
+    如果 $||e_i(k)|| < \epsilon$（对所有 $i$），则收敛。协调级将 $p_i^*(k)$ 作为最终协调指令 $p_i^{coord}$ 下发。否则，更新预测值 $p_i^p(k+1) = p_i^*(k)$，返回 Step 1，开始下一次迭代。
+  \end{itemize}
+  \item \textbf{分析}：
+  
+  在这种方法中，协调级直接干预了子系统的决策环境，较为直观。但是收敛性依赖于关联的强度，可能需要经过多次迭代。
+\end{enumerate}
+\subsection{关联平衡协调策略}
+\begin{enumerate}
+  \item \textbf{原理}：此方法引入拉格朗日乘子 $\lambda$（也称为"价格"）来处理关联约束。协调级不直接干预决策变量，而是通过调整"价格" $\lambda$ 来\textbf{修改子系统的局部目标函数}。子系统在修改后的目标下进行优化。协调级不断调整价格，直到所有子系统对关联变量的"供给"和"需求"达到平衡。
+  \item \textbf{问题重构}：
+  
+  为了使问题可分解我们引入副本变量。对每个子系统 $i$，它需要 $p_j$ 和 $p_k$ 的信息。我们引入 $p_{ij}$ 和 $p_{ik}$ 作为子系统 $i$ 所需的 $p_j$ 和 $p_k$ 的副本变量。
+
+  全局问题变为：
+  $$
+  \min \sum_{i=1}^3 \left( f_i(p_i) + g_{ij}(p_i, p_{ij}) + g_{ik}(p_i, p_{ik}) \right)
+  $$
+  \textbf{关联平衡约束}： $p_{ij} = p_j$ 且 $p_{ik} = p_k$（对所有 $i \neq j, i \neq k$）。
+
+
+  接下来构建增广拉格朗日函数$L$（为简化，此处省略二次惩罚项）：
+  $$
+  L = \sum_{i=1}^3 \left( f_i(p_i) + g_{ij}(p_i, p_{ij}) + g_{ik}(p_i, p_{ik}) \right) + \sum_{i \neq j} \lambda_{ij}^T (p_{ij} - p_j)
+  $$
+  
+  将拉格朗日函数$L$按$i$分解即得到修改后的局部目标函数：
+  $$
+  L_i = f_i(p_i) + \sum_{j \neq i} g_{ij}(p_i, p_{ij}) - \sum_{j \neq i} \lambda_{ij}^T p_{ij} + \sum_{j \neq i} \lambda_{ji}^T p_i
+  $$
+  \clearpage
+  \item \textbf{算法流程}：
+  \begin{itemize}
+    \item \textbf{Step 1：设定价格}
+    
+    协调级设定或更新价格 $\lambda_{ij}(k)$（对所有 $i \neq j$），并将其发送给所有子系统。
+    \item \textbf{Step 2：局部优化}
+
+    子系统 $i$ 独立地最小化其局部拉格朗日函数 $L_i$：
+    $$
+    \min_{p_i, \{p_{ij}\}_{j \neq i}} L_i(p_i, p_{ij}, \lambda(k))
+    $$
+    求解得到 $p_i^*(k)$ 和 $p_{ij}^*(k)$（对所有 $j \neq i$）。  
+    此优化同时求解了 $p_i$ 和它所需的 $p_j$ 的"副本" $p_{ij}$。  
+    
+    将 $p_i^*(k)$ 和 $p_{ij}^*(k)$ 上报给协调级。
+   
+    \item \textbf{Step 3：更新与收敛判断}
+    
+    协调级收集所有 $p_i^*(k)$ 和 $p_{ij}^*(k)$，并计算关联不平衡量：
+     $$
+    e_{ij}(k) = p_{ij}^*(k) - p_j^*(k)
+    $$
+    如果 $||e_{ij}(k)|| < \epsilon$（对所有 $i \neq j$），则达到平衡，收敛。协调级将 $p_i^*(k)$ 作为 $p_i^{coord}$ 下发。
+
+    否则，协调级更新价格：
+    $$
+    \lambda_{ij}(k+1) = \lambda_{ij}(k) + \alpha \cdot e_{ij}(k)
+    $$
+    其中 $\alpha > 0$ 是更新步长。  
+    返回 Step 1，开始下一次迭代。
+
+  \end{itemize}
+  \item \textbf{分析}：
+
+  此方法通过价格机制进行间接协调，协调级的工作量比关联预测协调策略少，但是收敛性对步长$\alpha$敏感。同时该模型的迭代过程中产生的中间解可能不可行，因此不能用于在线运行。
+\end{enumerate}
+\clearpage
+
+\section{结论}
+本报告针对多移动机器人编队在动态环境下的轨迹跟踪问题，提出了一套基于三级递阶控制架构的解决方案。通过对系统模型、功能层级和协调策略的分析，得出以下结论：
+
+\begin{enumerate}
+  \item \textbf{构建基于IPDI原理的三级递阶控制体系}：遵循IPDI原理，我们将复杂的编队控制任务拆解为组织级、协调级和执行级。这种分层架构有效降低了计算的维度，解决了集中式控制计算量爆炸的问题。
+  \item  \textbf{实现了多目标优化的解耦}：针对“轨迹跟踪”和“队形保持”这两个强耦合的控制目标，我们通过引入协调级的关联处理机制，将全局优化问题转换为各个机器人子系统的局部优化问题。
+  \item  \textbf{验证了两种协调策略的有效性}：
+  \begin{itemize}
+    \item \textbf{关联预测协调}：通过预测关联变量使得子系统可以并行求解。该方法较为直观，更加适合耦合度低的场景。
+    \item \textbf{关联平衡协调}：通过引入拉格朗日乘子动态调整局部目标优化函数，通过迭代消除了关联不平衡量。
+  \end{itemize}
+\end{enumerate}
+
+
+\section{心得体会}
+通过本次作业，我对递阶控制理论及其在多机器人协同中的应用有了更深的认识。
+
+首先，我意识到“分而治之”并不只是一种算法思想，更是一种工程哲学。对于像作业中一样的复杂任务，如果使用集中处理器，在数学上是几乎无法解决的。但是利用递阶控制的方法，我们可以通过层级的划分将各个目标进行解耦，从而能够分别进行求解优化。
+
+其次，我也对两种协调策略有了更加具体的认识。在设计完这两种算法后，我联想到了在《运筹学》中已经学过的原问题和对偶问题，加深了我对于对偶这个概念的理解。
+
+最后，在本次课程中，我首次尝试使用LaTeX撰写报告，用draw.io来绘制结构图。熟练掌握这些现代化成熟工具的使用，也有利于我以后的进一步发展。
+\end{document}

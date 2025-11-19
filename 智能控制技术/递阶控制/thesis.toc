@@ -1,0 +1,16 @@
+\contentsline {section}{\numberline {1}引言}{1}{section.1}%
+\contentsline {section}{\numberline {2}问题分析与系统建模}{1}{section.2}%
+\contentsline {subsection}{\numberline {2.1}问题分析}{1}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}机器人运动学模型}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}编队跟踪目标}{3}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}总体优化目标}{3}{subsection.2.4}%
+\contentsline {section}{\numberline {3}设计原则}{4}{section.3}%
+\contentsline {section}{\numberline {4}系统分解与层级设计}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}各层级功能划分}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}递阶控制系统结构图}{6}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}子系统局部决策与目标函数}{7}{subsection.4.3}%
+\contentsline {section}{\numberline {5}协调策略设计}{8}{section.5}%
+\contentsline {subsection}{\numberline {5.1}关联预测协调原则}{8}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}关联平衡协调策略}{9}{subsection.5.2}%
+\contentsline {section}{\numberline {6}结论}{11}{section.6}%
+\contentsline {section}{\numberline {7}心得体会}{11}{section.7}%
