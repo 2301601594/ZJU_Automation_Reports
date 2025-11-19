@@ -1,0 +1,582 @@
+\PassOptionsToPackage{quiet}{fontspec}
+\documentclass[12pt,a4paper,UTF8]{article}
+\usepackage{thesis} % 格式控制
+\usepackage{indentfirst}
+\usepackage{geometry}  % 页面布局
+\usepackage{multirow}  % 合并行
+\usepackage{makecell}  % 单元格换行
+\usepackage{xcolor}    % 颜色支持
+\usepackage{array}     % 表格列格式
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows, positioning}
+
+
+\setlength{\parindent}{2em} % 控制首行缩进  
+\addtolength{\parskip}{3pt} % 控制段落距离  
+\onehalfspacing % 1.5倍行距  
+\graphicspath{{./figures/}} % 指定图片所在文件夹  
+
+
+\classname{传感与检测}  % 设置课程名称
+\makepagestyle{}{\printclassname ~实验报告}
+
+\begin{document}
+\maketitlepage{传感与检测实验}{教10 6005}{董佳泽}{3230104322}{\today}{赵久强} %封面页 
+
+\maketoc    %目录页
+
+\section{温度检测与显示仪表实验}
+温度是国际单位制（SI）中的七个基本物理量之一，在各个相应学科单位制
+中占有重要的地位，因此温度检测在工业生产、科学研究和日常生活中等方面都
+具有广泛的应用。热电阻、热电偶是目前温度检测过程中应用比较广泛的两种测
+温传感器，其具有测量范围大、性能稳定、测量精度高、复现性好、互换性好、
+结构简单、安装使用方便、信号便于远传、自动记录和集中监控等主要特点。因
+此，本次温度检测实验重点围绕热电阻和热电偶两类温度传感器开展实施，主要
+包含温度检测传感器与检测仪表实验、热电偶检定实验和热电偶温度显示仪表实
+验三部分
+\subsection{温度检测传感器与检测仪表实验}
+\label{1-1}
+\subsubsection{实验目的}
+\begin{enumerate}
+  \item 使学生掌握工业现场常用的温度传感器热电偶和热电阻测温的基本原理及使用方法；
+  \item 使学生掌握热电偶冷端温度补偿的基本概念及处理方法；
+  \item 使学生掌握热电偶、热电阻测温系统的结构形式和接线方式；
+  \item 使学生掌握热电偶、热电阻检测仪表的基本使用方法。
+\end{enumerate}
+\subsubsection{实验要求}
+\begin{enumerate}
+  \item 掌握热电偶、热电阻检测温度的原理及其使用方法；
+  \item 掌握热电偶测温过程中的冷端温度补偿的基本概念和处理方法；
+  \item 掌握热电偶、热电阻测温系统的结构形式和接线方式；
+  \item 了解实验室仪器设备的作用和使用方法，完成接线并使用检测仪表进行测量；
+  \item 实验报告应包括测量原理图、接线图、测量误差分析等。
+\end{enumerate}
+\subsubsection{实验原理}
+
+电阻式检测元件在检测技术领域具有广泛应用，其基本原理是将被测物理量
+转化为电阻值的变化，然后利用测量电路测出电阻的变化值，从而达到对被测物
+理量检测的目标。目前使用的金属热电阻材料有铂、铜、镍、铁等，其中最为广
+泛的为铂、铜材料，并已经实现了标准化生产，且具有较高的稳定性和准确度。
+以铂材料电阻为例，铂电阻的电阻值与温度的关系是一个典型的非线性函数，一
+般工业用的铂电阻可以用下式表示：
+$$
+R_t = R_0 (1 + At + Bt^2 + C(t - 100)t^3) \quad (0^\circ\mathrm{C} < t < 850^\circ\mathrm{C})
+$$
+$$
+R_t = R_0 \left\{1 + At + Bt^2 + C[t(t - 100)]\right\} \quad (-200^\circ\mathrm{C} < t < 0^\circ\mathrm{C})
+$$
+式中， $R_t$为温度在$t$ °C 时铂电阻的电阻值；$A$、$B$、$C$为常数。
+
+
+热电式检测元件是利用敏感元件将温度变化转化为电量的变化，从而达到测
+量温度的目的。最典型的热电式检测元件为热电偶，目前也常用于工业现场的测
+温环节，具有结构简单、测温准确度高和测温范围广等优势。如图\ref{redianou}热电偶结
+构示意图所示，将两种不同的导体$A$、$B$ 连接成闭合回路，将它们的两个接点分
+别置于温度为$T$ 及$T_0$的热源中，则在该回路内就会产生热电动势。
+    \begin{figure}[!htbp]
+        \centering
+        \includegraphics[width=0.8\textwidth]{热电偶结构示意图.png}
+        \caption{热电偶结构示意图}
+        \label{redianou}
+    \end{figure}
+\subsubsection{实验步骤}
+\begin{enumerate}
+  \item 通电前，首先认识实验装置中各个组成部分仪表的功能。按下表进行接线并检查。
+
+\begin{table}[htbp]
+\begin{center}
+\caption{温度检测接线表}
+\begin{tabular}{|c|c|c|}
+\hline
+始——终               & 导线规格    & 备注        \\ \hline
+标准热电偶－ET3805 输入端⑤  & 配套补偿导线  & 规格二等标准热电偶 \\ \hline
+E 型热电偶－ET3805 输入端① & 配套补偿导线  & 接①中间测量插孔  \\ \hline
+K 型热电偶－ET3805 输入端② & 配套补偿导线  & 接②中间测量插孔  \\ \hline
+普通热电阻－ET3805 输入端③  & 配套热电阻引线 & 四线制接线方式   \\ \hline
+AC 电源－ET3805 电源插头  & 三芯橡胶护套线 & 电源线，必须接地  \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+  \item 检查完毕后，打开ET3805 干体炉电源开关，此时电源指示灯常亮，等待设备启动完毕。
+  \item 在主界面设置温度100℃,设置好温度后,在主界面启动仪器。
+  \item 等待“测量温度”文字呈绿色显示，默认的温度稳定条件为波动度0.4℃，目标偏差0.5℃，稳定时间5min（满足波动度和目标偏差要求后的持续时间）。
+  \item “测量温度”文字呈绿色后，分别记录标准、普通热电偶以及热电阻的输出值（按照实验要求记录电信号数值）
+  \item 将E、K 型热电偶从干体炉输入端拔出，将E 型热电偶插入干体炉输入端，待稳定片刻后观察并记录此时的显示数据，完成思考题3 并用记录数据验证解题思路是否正确。
+  \item 根据步骤6 所记录的数据，查阅分度表，判断标准热电偶的分度号，参考标准热电偶的输出值，分别计算该温度点下普通E、K 型热电偶以及热电阻（pt100）的温度相对误差。
+
+
+\end{enumerate}
+\subsubsection{数据记录与处理}
+测量时读取自动冷端温度（室温）为21.74℃，将测量结果记录在表2中。
+\begin{table}[htbp]
+    \centering
+    \caption{温度传感器实验数据记录表}
+    % 定义表格列格式：加 | 表示竖线，c 表示居中
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \multirow{2}{*}{序号} & 设定温度 & 标准热电偶 & E 型热电偶 & K 型热电偶 & 热电阻电阻值/ \\
+        & 值/$^\circ$C & 电压值/mV & 电压值/mV & 压值/mV & $\Omega$ \\
+        \hline
+        1 & \multirow{4}{*}{100.000} & 0.5116 & 4.8601 & 3.1102 & 137.8190 \\ \cline{1-1} \cline{3-6}
+        2 &                          & 0.5118 & 4.8602 & 3.1100 & 137.8200 \\ \cline{1-1} \cline{3-6}
+        3 &                          & 0.5119 & 4.8600 & 3.1095 & 137.8270 \\ \cline{1-1} \cline{3-6}
+        4 &                          & 0.5117 & 4.8595 & 3.1098 & 137.8320 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+根据表2内容对数据进行处理,将结果记录在表3中。
+
+\begin{table}[htbp]
+    \centering
+    % 设置行高，使表格看起来不那么拥挤
+    \renewcommand{\arraystretch}{1.3}
+    \caption{温度传感器实验数据处理表}
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        处理方式 & {标准热电偶} & {E型热电偶} & {K型热电偶} & {热电阻} \\
+        \hline
+        求取均值 & 0.5188 & 4.86 & 3.1099 & 137.8245 \\
+        \hline
+        冷端查表 & 0.119 & 1.252 & 0.838 & 108.18 \\
+        \hline
+        数值换算 & 0.6308 & 6.112 & 3.9479 & 137.8245 \\
+        \hline
+        温度查表 & 98 & 97 & 96 & 98 \\
+        \hline
+        相对误差 & 0 & 1\% & 2\% & 0 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+由于书后附录的表只能精确到温度的个位，因此在查表对应温度时存在一定误差。
+
+\subsubsection{思考题}
+\begin{problem}
+热电阻式检测元件主要分为几种，各适用于哪种场合？
+\end{problem}
+\begin{solution}
+主要分为\textbf{金属热电阻}和\textbf{半导体热敏电阻}两大类，其中金属热电阻主要为\textbf{比铂电阻}和\textbf{铜电阻}。
+\begin{itemize}
+  \item 铂电阻：物理化学性能极稳定，精度高，复现性好。
+  \begin{itemize}
+    \item 适用场景：工业级的高精度温度测量，作为标准温度计使用。适用于 $-200^\circ\text{C} \sim 850^\circ\text{C}$ 的宽温区。
+  \end{itemize}
+  
+  \item 铜热电阻：价格便宜，线性度极好，但易氧化。
+  \begin{itemize}
+    \item 适用场合: 测量精度要求不高，且温度较低（$-50^\circ\text{C} \sim 150^\circ\text{C}$）的非腐蚀性介质环境（如电机绕组测温）。
+  \end{itemize}
+
+  \item 半导体热敏电阻：灵敏度比金属高 10~100 倍，体积小，响应快，但线性度差，互换性差。
+    \begin{itemize}
+    \item 适用场合: 家电温控（空调、冰箱）、电路过热保护、快速响应的点温测量、PCB板级测温。
+  \end{itemize}
+\end{itemize}
+\end{solution}
+
+\begin{problem}
+试比较热电偶测温和热电阻测温有哪些区别（可以从原理、系统构成和应用
+场合分析）。
+\end{problem}
+\begin{solution}
+\begin{enumerate}
+  \item \textbf{工作原理}：热电偶利用压热效应，属于有源传感器，不需要外接激励。热电阻是利用电阻的热效应，是无源传感器，需要外接电源。
+  \item \textbf{系统构成}：热电偶需要进行冷端补偿，且使用特定的补偿导线延展信号。热电阻可以使用普通的铜导线，但是需要考虑引线电阻的影响。
+  \item \textbf{应用场合}：热电偶用于测量高温，热电阻一般用于测量中低温。
+\end{enumerate}
+\end{solution}
+
+\begin{problem}
+有一配K 分度号的电子电位差计，在测温过程中配错了E 分度号的热电偶，
+此时仪表指示为315℃，假设冷端温度为23℃，则实测温度约为多少℃（取整数）。
+\end{problem}
+\begin{solution}
+  仪表显示的温度是基于K型分度表计算的，需先还原为实际输入毫伏值，再结合E型热电偶特性反推真实温度。
+
+  \textbf{步骤 1：计算仪表输入端的实际热电势 $V_{in}$}
+  \begin{align*}
+    V_{in} &= E_K(T_{\text{示}}) - E_K(T_0) \\
+    &= E_K(315^\circ\text{C}) - E_K(23^\circ\text{C}) \\
+    &\approx 12.83\,\text{mV} - 0.92\,\text{mV} \\
+    &= 11.91\,\text{mV}
+  \end{align*}
+
+\textbf{步骤 2：计算E型热电偶产生的总热电势 $E_E(T_{\text{真}})$}
+\begin{align*}
+    E_E(T_{\text{真}}) &= V_{in} + E_E(T_0) \\
+    &= 11.91\,\text{mV} + E_E(23^\circ\text{C}) \\
+    &\approx 11.91\,\text{mV} + 1.38\,\text{mV} \\
+    &= 13.29\,\text{mV}
+\end{align*}
+
+\textbf{步骤 3：查表反推真实温度}
+\noindent 查 E 型热电偶分度表可知：
+$$ E_E(190^\circ\text{C}) \approx 12.70\,\text{mV}, \quad E_E(200^\circ\text{C}) \approx 13.42\,\text{mV} $$
+由于 $13.29\,\text{mV}$ 介于两者之间，利用线性插值法计算：
+\begin{align*}
+    T_{\text{真}} &\approx 190 + \frac{13.29 - 12.70}{13.42 - 12.70} \times 10 \\
+    &\approx 198.2^\circ\text{C}
+\end{align*}
+
+\noindent \textbf{结论：} 实测温度约为 $198^\circ\text{C}$。
+
+  在实验中，我们将E和K热电偶进行互换读数，读到$E_K=72.001$℃、$E_E=140.484$℃，通过以上的方法可以求出，两者对应的温度分别为$T_E=107$℃、$T_K=91$℃
+\end{solution}
+
+\begin{problem}
+简述热电阻测温有哪几种接线方式，以及分析各自优缺点。
+\end{problem}
+\begin{solution}
+热电阻测温主要有三种接线方式，分别为二线制、三线制和四线制。
+
+\begin{enumerate}
+    \item \textbf{二线制}
+    \begin{itemize}
+        \item \textbf{方式：} 热电阻两端各连接一根导线。
+        \item \textbf{优点：} 结构最简单，成本最低。
+        \item \textbf{缺点：} 导线电阻直接计入测量结果，导致测量值偏高，误差较大。
+        \item \textbf{适用：} 精度要求不高、且引线较短的场合。
+    \end{itemize}
+
+    \item \textbf{三线制}
+    \begin{itemize}
+        \item \textbf{方式：} 热电阻一端接两根线，另一端接一根线。
+        \item \textbf{优点：} 配合电桥电路，在三根导线阻值相等的前提下，可有效抵消导线电阻的影响。
+        \item \textbf{缺点：} 需要保证三根导线的材质、长度和线径一致。
+        \item \textbf{适用：} 绝大多数工业现场的温度测量。
+    \end{itemize}
+
+    \item \textbf{四线制}
+    \begin{itemize}
+        \item \textbf{方式：} 热电阻两端各接两根线（两根电流线，两根电压线）。
+        \item \textbf{优点：} 利用恒流源和高阻抗电压测量，可完全消除导线电阻的影响，精度最高。
+        \item \textbf{缺点：} 导线数量多，成本较高，电路复杂。
+        \item \textbf{适用：} 实验室高精度测量或作为标准温度计。
+    \end{itemize}
+\end{enumerate}
+\end{solution}
+\subsection{热电偶校准实验}
+\subsubsection{实验目的}
+\begin{enumerate}
+  \item 使学生熟悉热电偶校准的设备、规程及热电偶校准的方法；
+  \item 使学生掌握热电偶冷端温度补偿、补偿导线等的基本概念及应用方法；
+  \item 使学生了解温度控制系统的基本构成及控制精度的概念；
+  \item 使学生了解测量系统的动态特性的实验研究方法。
+\end{enumerate}
+\subsubsection{实验要求}
+\begin{enumerate}
+  \item 了解热电偶的结构，掌握热电偶检测温度的原理及其使用方法；
+  \item 掌握热电偶传感器校准的方法和操作过程，了解所用仪器的选型和用法等；
+  \item 掌握热电偶测温中的几个关键概念，如热电偶冷端处理、补偿导线的原理；
+  \item 实验报告应包括测量原理图、接线图、测量误差分析等。
+\end{enumerate}
+\subsubsection{实验原理}
+热电偶使用一段时间后，测量端由于氧化腐蚀和高温下的再结晶等因素，热
+电特性会发生一定变化，因而会产生测量误差，为了确保其测量准确度，必须对其进行校准或者检定。一般采用\textbf{比较法}进行校准，本实验将标准热电偶和被校热电偶的测量端同时插入干体炉的均热块中（尽量使其测量端的温度相同），待干体炉的控温系统将均热块的温度控制在变化不超过正负0.2℃时直接测量标准热电偶与被校热电偶的热电势，通过比较、换算，最后确定被校热电偶的示值误差，并判断是否超差。
+\subsubsection{实验步骤}
+\begin{enumerate}
+  \item 首先按照实验\ref{1-1}中步骤进行正确接线
+  \item 点按菜单界面的“控温参数设置”—>点击“控温历史数据”—>点击“数据列表”—>点击“删除”后依次将历史数据全部删除。
+  \item 返回菜单界面，点按菜单界面的“任务”按键，进入任务界面。点击“任务记录” —>点击“删除” 后依次将检定数据全部删除。
+  \item 返回菜单界面，再次点按菜单界面的“任务”按键，进入任务界面。任务功能主要用于被检设备的智能校准或检定。等待完成后用U 盘导出需要的实验数据。
+  \item \textbf{由于时间关系，本次实验校准的温度点设置为（200℃,250℃,300℃）。}
+\end{enumerate}
+
+\subsubsection{数据记录与处理}
+将仪器校准得到的数据下载到U盘，通过软件处理，得到结果如表4。
+\begin{table}[htbp]
+    \centering
+    \caption{热电偶校准实验数据记录表}
+    \small % 使用小号字体以适应宽度
+    \renewcommand{\arraystretch}{1.4} % 增加行高，防止拥挤
+    
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        校准地点 & \multicolumn{3}{c|}{教10 6005} & 校准时间 & \\
+        \hline
+        参考标准 & 外置标准温度计 & 型号规格 & S & 序列号 & 1 \\
+        \hline
+        \multicolumn{6}{|c|}{\textbf{被校热电偶信息}} \\
+        \hline
+         & & No.1 & No.2 & No.3 & No.4 \\
+        \hline
+        型号 & & 1 & 2 & 3 & \\
+        \hline
+        分度号 & & E & K & PT100-385 & \\
+        \hline
+        量程/$^\circ$C & & -40$\sim$1000 & -40$\sim$1000 & -40$\sim$1000 & \\
+        \hline
+        制造单位 & & & & & \\
+        \hline
+        出厂编号 & & & & & \\
+        \hline\hline
+        % 数据部分表头
+        \multirow{2}{*}{\makecell{校准温度点\\/$^\circ$C}} & 
+        \multirow{2}{*}{\makecell{标准温度\\(温度$^\circ$C/电信号mV)}} & 
+        \multicolumn{4}{c|}{\makecell{被检热电偶温度 \quad (温度$^\circ$C/电信号mV)}} \\
+        \cline{3-6}
+         & & \multicolumn{1}{c|}{No.1} & \multicolumn{1}{c|}{No.2} & \multicolumn{1}{c|}{No.3} & \multicolumn{1}{c|}{No.4} \\ 
+         % 注：原图此处没有再次列出No.1-4，但为了对齐数据，逻辑上是对应的
+        \hline
+        \textcolor{red}{200} & 195.41/1.2500 & 189.79/11.2856 & 192.18/6.9009 & 189.61/172.0278 & \\
+        \hline
+        冷端温度 & 23.15 & 23.15 & -- & -- & \\
+        \hline
+        误差 & -- & 5.63 & 3.23 & 5.8 & \\
+        \hline\hline
+        
+        \textcolor{red}{250} & 248.45/1.7008 & 243.78/15.3164 & 246.11/9.0643 & 243.28/191.6646 & \\
+        \hline
+        冷端温度 & 23.28 & 23.28 & 23.28 & -- & \\
+        \hline
+        误差 & -- & 4.67 & 2.35 & 5.17 & \\
+        \hline\hline
+        
+        \textcolor{red}{300} & 298.75/2.1444 & 294.20/19.1723 & 296.23/11.1072 & 293.39/209.6943 & \\
+        \hline
+        冷端温度 & 23.64 & 23.64 & 23.64 & -- & \\
+        \hline
+        误差 & -- & 4.55 & 2.52 & 5.36 & \\
+        \hline
+    \end{tabular}
+\end{table}
+
+对校准过程中的4种温度传感器的测得的温度数据进行处理，绘制成以下曲线图。
+
+\begin{figure}[!htbp]
+    \centering
+    \subcaptionbox{200℃}[0.33\textwidth][c]{
+        \centering
+        \includegraphics[width=0.32\textwidth]{200.png}
+         
+    }%
+        \subcaptionbox{250℃}[0.33\textwidth][c]{
+        \centering
+        \includegraphics[width=0.32\textwidth]{250.png}
+         
+    }%
+        \subcaptionbox{300℃}[0.33\textwidth][c]{
+        \centering
+        \includegraphics[width=0.32\textwidth]{300.png}
+         
+    }%
+    \caption{校准温度曲线}
+     
+\end{figure}
+\clearpage
+\subsubsection{数据分析}
+\begin{enumerate}
+  \item \textbf{校准结论}
+  
+  在表4中可以看出，所有被测传感器的测量值都低于标准温度值，即存在负偏差。
+  
+  分别对3种传感器进行分析，可知：
+  K型热电偶的表现相对最好，E型热电偶存在较大的误差，热电阻传感器误差最大。因此使用这些传感器对温度进行读数时，需要加入一个正向的修正值。
+  \item \textbf{误差分析}
+  \begin{itemize}
+    \item 如果仪表测量的冷端温度不准确，那会带来整体的偏差。
+    \item 实际使用的电偶丝与国家标准不可能完全一致，这会带来误差。
+    \item 热电偶插入的深度可能不够，导致外部热量沿保护管散失。
+  \end{itemize}
+  \item \textbf{曲线变化}
+  从曲线中也可看出，三种传感器都存在一定程度的负偏差，测量得到的温度都小于标准热电偶。
+\end{enumerate}
+\subsubsection{思考题}
+\begin{problem}
+列举冷端补偿的方法。
+\end{problem}
+\begin{solution}
+\begin{itemize}
+    \item \textbf{冰浴法：} 将冷端置于 $0^\circ\text{C}$ 的冰水混合物中。
+    \item \textbf{计算修正法：} 利用公式 $E(T, 0) = E(T, T_0) + E(T_0, 0)$ 进行数值修正。
+    \item \textbf{电桥补偿法：} 利用不平衡电桥产生的电压来抵消冷端温度变化带来的电势变化。
+    \item \textbf{仪表自动补偿法：} 现代仪器通过内置热敏电阻测量冷端温度并自动软件补偿。
+\end{itemize}
+\end{solution}
+
+\begin{problem}
+在热电偶测温电路中采用补偿导线时，应如何连接，需要注意哪些问题？
+\end{problem}
+\begin{solution}
+\begin{itemize}
+    \item \textbf{连接方式：} 正极接正极，负极接负极（注意：部分标准中红色绝缘层可能为负极，需仔细判别）。
+    \item \textbf{注意事项：}
+    \begin{enumerate}
+        \item \textbf{型号匹配：} 补偿导线的分度号必须与热电偶一致（如 K 型偶配 K 型线）。
+        \item \textbf{极性正确：} 极性接反会造成双倍的测量误差。
+        \item \textbf{温度一致：} 补偿导线与热电偶连接点的两个接线端温度必须保持一致。
+        \item \textbf{抗干扰：} 信号线应尽量短，并避开强磁场或动力线，尽量使用屏蔽线。
+    \end{enumerate}
+\end{itemize} 
+\end{solution}
+
+\begin{problem}
+当补偿导线类型和极性混淆不明时如何判别？
+\end{problem}
+\begin{solution}
+\begin{itemize}
+    \item \textbf{判别极性（热水法）：} 
+    将导线一端的两根线绞合，放入热水中；另一端接入万用表毫伏档。若电压为正，则与红表笔相连的导线为正极。
+    
+    \item \textbf{判别类型（比对法）：}
+    在确定极性后，测量其在特定温差下（如 $100^\circ\text{C}$ 沸水与室温）产生的热电势大小，与标准分度表比对。例如，K型线产生的电势通常小于 E型线。
+    
+    \item \textbf{外观识别：} 
+    （辅助方法）查看绝缘层颜色，依据国标（GB/T 4989）或美标（ASTM）色谱进行初步判断。
+\end{itemize} 
+\end{solution}
+
+\begin{problem}
+试画出典型计算机控制系统的单回路控制方块图。
+\end{problem}
+\begin{solution}
+    \begin{figure}[!htbp]
+        \centering
+        \includegraphics[width=0.5\textwidth]{闭环反馈.png}
+        \caption{单回路控制方块图}
+    \end{figure}
+\end{solution}
+\subsection{热电偶温度显示仪表实验}
+
+\subsubsection{实验目的}
+\begin{enumerate}
+  \item 掌握热电偶温度显示记录仪表的原理、构造及使用方法；
+  \item 掌握典型温度显示记录仪表精度校准的基本方法；
+  \item 了解目前主流过程校验仪的功能，并掌握其基本使用方法；
+  \item 掌握显示仪表的误差分析及准确度等级判断。
+\end{enumerate}
+\subsubsection{实验仪器设备、装置}
+\begin{enumerate}
+  \item 被校热电偶温度显示记录仪表一台（\textbf{量程0~1300℃}）
+  \item 便携式过程校验仪一台
+  \item 高精度温度显示表（室温参考）
+  \item 实验原理参考实验总体介绍
+\end{enumerate}
+\subsubsection{实验步骤}
+\begin{enumerate}
+  \item 按照图\ref{xianshijiluyibiao}红框所示接好显示仪表输入端导线，将温度显示仪表接通电源。
+    \begin{figure}[!htbp]
+        \centering
+        \includegraphics[width=0.5\textwidth]{显示记录仪表输入端.jpeg}
+        \caption{显示记录仪表接线图}
+        \label{xianshijiluyibiao}
+    \end{figure}
+    \item 显示仪表在工作状态下，同时长按方向键“上键”与“下键”，在密码确认后即进入输入设置（无密码，自动保存上一次设置）。在“输入设置”下按“ok”键进入通道设置。
+    \item 在“输入设定”下，调整光标到信号类型，当光标对准“型号类型”时，按“ok”键，本实验选定信号类型为：K，按照提示保存确认即可（如已经设置好，则仅需要确认即可）。
+    \item 便携式过程校验仪在开机状态下，按MEA/SOUR 键切换至输出模式，按键调整到mV 电压输出工作状态（长按对应数字键进行切换）。
+    \item 按热电偶测量功能接线示意图所示把校验仪的输出端子接到显示记录仪表上。
+    \item 检查热电偶温度显示仪表的量程范围（量程0~1300℃），在全量程范围中均匀选取10 个温度基准点进行精度校验。
+    \item 选好温度基准点后，查阅热电偶分度表换算为相应的mV 电信号（注意显示记录仪表自带冷端温度补偿的影响）。
+    \item 依次在过程校验仪上的数字键输入需要输出的电信号数值，按确认键后，待显示稳定后记录实验数据。
+
+\end{enumerate}
+\clearpage
+\subsubsection{数据记录与处理}
+\begin{table}[htbp]
+    \centering
+    \caption{实验数据记录表}
+    % \caption{温度校验数据表} % 如需标题可取消注释
+    
+    % 设置行高为 1.5 倍，使表格看起来像您的模板一样宽敞
+    \renewcommand{\arraystretch}{1.5}
+    
+    % 定义列格式：|c| 表示每列之间都有竖线，内容居中
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        序号 & 校验温度基准点 & 过程校验仪输出电压值 & 温度记录显示仪表读数 & 误 差 \\
+        \hline
+        1 & 0$^\circ$C & -0.798 mV & -0.786 mV & 1.5038\% \\
+        \hline
+        2 & 144$^\circ$C & 5.098 mV & 5.106 mV & 0.1569\% \\
+        \hline
+        3 & 289$^\circ$C & 10.955 mV & 10.960 mV & 0.0456\% \\
+        \hline
+        4 & 433$^\circ$C & 16.954 mV & 16.960 mV & 0.0354\% \\
+        \hline
+        5 & 578$^\circ$C & 23.172 mV & 23.175 mV & 0.0129\% \\
+        \hline
+        6 & 722$^\circ$C & 29.209 mV & 29.211 mV & 0.0068\% \\
+        \hline
+        7 & 867$^\circ$C & 35.202 mV & 35.204 mV & 0.0057\% \\
+        \hline
+        8 & 1011$^\circ$C & 40.906 mV & 40.905 mV & 0.0024\% \\
+        \hline
+        9 & 1156$^\circ$C & 46.42 mV & 46.421 mV & 0.0022\% \\
+        \hline
+        10 & 1300$^\circ$C & 51.612 mV & 51.610 mV & 0.0039\% \\
+        \hline
+    \end{tabular}
+\end{table}
+  
+计算可得，仪表的最大绝对误差为$\Delta_{max}=0.12$mV，量程为$52.41$mV
+
+因此代入引用误差的计算公式有：
+
+$$\gamma = \frac{0.012}{52.41} \times 100\% \approx \mathbf{0.0229\%}$$
+
+根据数据可以该仪表的精确度等级为0.05级
+
+\subsubsection{思考题}
+\begin{problem}
+当温度显示仪表热电偶输入端的输入电势为0mV 时，指示温度应该是多少；
+当温度显示仪表没有输入时，指示值又是多少；将温度显示仪表热电偶输入
+端短接，指示值又是多少？
+\end{problem}
+\begin{solution}
+\begin{itemize}
+        \item \textbf{当输入电势为 0mV 时：} 
+        仪表指示温度应为\textbf{室温（环境温度）}。
+        
+        \item \textbf{当仪表没有输入（开路）时：}
+        仪表通常指示\textbf{最大量程、溢出符号（如 OVER/Err）或无穷大}。
+        
+        \item \textbf{当输入端短接时：}
+        仪表指示温度应为\textbf{室温（环境温度）}。
+    \end{itemize}
+\end{solution}
+
+\begin{problem}
+如何判断热电偶温度显示仪表是否自带冷端温度补偿？
+\end{problem}
+\begin{solution}
+将仪表的热电偶输入端\textbf{短路}。
+    \begin{itemize}
+        \item 如果仪表指示值约为\textbf{室温}（例如 $25^\circ\text{C}$），则说明仪表\textbf{有}冷端补偿功能。
+        \item 如果仪表指示值约为 \textbf{$0^\circ\text{C}$}，则说明仪表\textbf{无}冷端补偿功能（或功能未开启）。
+    \end{itemize} 
+\end{solution}
+
+\begin{problem}
+检定配热电偶的温度显示仪表时，常用标准电势输入替代实际热电偶的热电
+势。现要检定K 型温度显示仪表在700℃时的准确值，问需要输入多大的标
+准电势（环境温度为25℃）。
+\end{problem}
+\begin{solution}
+
+\textbf{已知条件：}
+    \begin{itemize}
+        \item 检定点温度 $T = 700^\circ\text{C}$
+        \item 环境温度 $T_0 = 25^\circ\text{C}$
+        \item 查 K 型热电偶分度表：
+        $$ E_K(700^\circ\text{C}, 0) \approx 29.129\,\text{mV} $$
+        $$ E_K(25^\circ\text{C}, 0) \approx 1.000\,\text{mV} $$
+    \end{itemize}
+
+    \textbf{计算过程：}
+    \begin{align*}
+        V_{\text{std}} &= E_K(T, 0) - E_K(T_0, 0) \\
+        &= 29.129\,\text{mV} - 1.000\,\text{mV} \\
+        &= 28.129\,\text{mV}
+    \end{align*}
+
+    \textbf{答案：} 需要输入的标准电势约为 \textbf{$28.129\,\text{mV}$}。 
+\end{solution}
+\clearpage
+\section{压力、液位、流量实验}
+
+
+\clearpage
+\section{智能产线传感与检测实验}
+
+\end{document}
