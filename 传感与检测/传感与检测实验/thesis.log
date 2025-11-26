@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.30)  19 NOV 2025 21:58
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.30)  26 NOV 2025 17:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -623,237 +623,6 @@ Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
 \rotheadsize=\dimen292
 \c@nlinenum=\count364
 \TeXr@lab=\toks29
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks30
-\pgfutil@tempdima=\dimen293
-\pgfutil@tempdimb=\dimen294
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box108
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/pgf.revision.tex)
-Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
-))
-Package: pgf 2023-01-15 v3.1.10 (3.1.10)
- (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
-Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
- (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks31
-\pgfkeys@temptoks=\toks32
- (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
-\pgfkeys@tmptoks=\toks33
-))
-\pgf@x=\dimen295
-\pgf@y=\dimen296
-\pgf@xa=\dimen297
-\pgf@ya=\dimen298
-\pgf@xb=\dimen299
-\pgf@yb=\dimen300
-\pgf@xc=\dimen301
-\pgf@yc=\dimen302
-\pgf@xd=\dimen303
-\pgf@yd=\dimen304
-\w@pgf@writea=\write3
-\r@pgf@reada=\read2
-\c@pgf@counta=\count365
-\c@pgf@countb=\count366
-\c@pgf@countc=\count367
-\c@pgf@countd=\count368
-\t@pgf@toka=\toks34
-\t@pgf@tokb=\toks35
-\t@pgf@tokc=\toks36
-\pgf@sys@id@count=\count369
- (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
-File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
-)
-Driver file for pgf: pgfsys-xetex.def
- (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-xetex.def
-File: pgfsys-xetex.def 2023-01-15 v3.1.10 (3.1.10)
- (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-dvipdfmx.def
-File: pgfsys-dvipdfmx.def 2023-01-15 v3.1.10 (3.1.10)
- (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
-File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
-)
-\pgfsys@objnum=\count370
-))) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
-File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count371
-\pgfsyssoftpath@bigbuffer@items=\count372
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
-File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
-Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
- (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen305
-\pgfmath@count=\count373
-\pgfmath@box=\box109
-\pgfmath@toks=\toks37
-\pgfmath@stack@operand=\toks38
-\pgfmath@stack@operation=\toks39
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count374
-)) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
-File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@picminx=\dimen306
-\pgf@picmaxx=\dimen307
-\pgf@picminy=\dimen308
-\pgf@picmaxy=\dimen309
-\pgf@pathminx=\dimen310
-\pgf@pathmaxx=\dimen311
-\pgf@pathminy=\dimen312
-\pgf@pathmaxy=\dimen313
-\pgf@xx=\dimen314
-\pgf@xy=\dimen315
-\pgf@yx=\dimen316
-\pgf@yy=\dimen317
-\pgf@zx=\dimen318
-\pgf@zy=\dimen319
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
-File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@path@lastx=\dimen320
-\pgf@path@lasty=\dimen321
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
-File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@shorten@end@additional=\dimen322
-\pgf@shorten@start@additional=\dimen323
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
-File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfpic=\box110
-\pgf@hbox=\box111
-\pgf@layerbox@main=\box112
-\pgf@picture@serial@count=\count375
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
-File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgflinewidth=\dimen324
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
-File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@pt@x=\dimen325
-\pgf@pt@y=\dimen326
-\pgf@pt@temp=\dimen327
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
-File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
-File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
-File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
-File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowsep=\dimen328
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
-File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@max=\dimen329
-\pgf@sys@shading@range@num=\count376
-\pgf@shadingcount=\count377
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
-File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
-File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfexternal@startupbox=\box113
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
-File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
-File: pgfcoretransparency.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
-File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
-File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
-File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodeparttextbox=\box114
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
-File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
-Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
-\pgf@nodesepstart=\dimen330
-\pgf@nodesepend=\dimen331
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
-Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
-)) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/math/pgfmath.sty (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
-Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
-\pgffor@iter=\dimen332
-\pgffor@skip=\dimen333
-\pgffor@stack=\toks40
-\pgffor@toks=\toks41
-)) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
-Package: tikz 2023-01-15 v3.1.10 (3.1.10)
- (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
-File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count378
-\pgfplotmarksize=\dimen334
-)
-\tikz@lastx=\dimen335
-\tikz@lasty=\dimen336
-\tikz@lastxsaved=\dimen337
-\tikz@lastysaved=\dimen338
-\tikz@lastmovetox=\dimen339
-\tikz@lastmovetoy=\dimen340
-\tikzleveldistance=\dimen341
-\tikzsiblingdistance=\dimen342
-\tikz@figbox=\box115
-\tikz@figbox@bg=\box116
-\tikz@tempbox=\box117
-\tikz@tempbox@bg=\box118
-\tikztreelevel=\count379
-\tikznumberofchildren=\count380
-\tikznumberofcurrentchild=\count381
-\tikz@fig@count=\count382
- (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
-File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count383
-\pgfmatrixcurrentcolumn=\count384
-\pgf@matrix@numberofcolumns=\count385
-)
-\tikz@expandcount=\count386
- (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
-File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.code.tex
-File: tikzlibraryshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
- (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.geometric.code.tex
-File: tikzlibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
- (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.geometric.code.tex
-File: pgflibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.misc.code.tex
-File: tikzlibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
- (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.misc.code.tex
-File: pgflibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.symbols.code.tex
-File: tikzlibraryshapes.symbols.code.tex 2023-01-15 v3.1.10 (3.1.10)
- (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.symbols.code.tex
-File: pgflibraryshapes.symbols.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.arrows.code.tex
-File: tikzlibraryshapes.arrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
- (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.arrows.code.tex
-File: pgflibraryshapes.arrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.callouts.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.callouts.code.tex)) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.multipart.code.tex
-File: tikzlibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
- (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multipart.code.tex
-File: pgflibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodepartlowerbox=\box119
-\pgfnodeparttwobox=\box120
-\pgfnodepartthreebox=\box121
-\pgfnodepartfourbox=\box122
-\pgfnodeparttwentybox=\box123
-\pgfnodepartnineteenbox=\box124
-\pgfnodeparteighteenbox=\box125
-\pgfnodepartseventeenbox=\box126
-\pgfnodepartsixteenbox=\box127
-\pgfnodepartfifteenbox=\box128
-\pgfnodepartfourteenbox=\box129
-\pgfnodepartthirteenbox=\box130
-\pgfnodeparttwelvebox=\box131
-\pgfnodepartelevenbox=\box132
-\pgfnodeparttenbox=\box133
-\pgfnodepartninebox=\box134
-\pgfnodeparteightbox=\box135
-\pgfnodepartsevenbox=\box136
-\pgfnodepartsixbox=\box137
-\pgfnodepartfivebox=\box138
-))) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
-File: tikzlibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
- (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
-File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\arrowsize=\dimen343
-)) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
-File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
 
 Package xeCJK Warning: Fandol is being set as the default font for CJK text.
@@ -866,26 +635,26 @@ LaTeX Warning: Unused global option(s):
 (./thesis.aux)
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -923,61 +692,61 @@ LaTeX Font Info:    ... okay on input line 23.
 
 \symlegacymaths=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 23.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 23.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 23.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 23.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 23.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 23.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 23.
-LaTeX Font Info:    Redeclaring math accent \check on input line 23.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 23.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 23.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 23.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 23.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 23.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 23.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 23.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 23.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 23.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 23.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 23.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 23.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 23.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 23.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 23.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 23.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 22.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 22.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 22.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 22.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 22.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 22.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 22.
+LaTeX Font Info:    Redeclaring math accent \check on input line 22.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 22.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 22.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 22.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 22.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 22.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 22.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 22.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 22.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 22.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 22.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 22.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 22.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 22.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 22.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 22.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 22.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 23.
+(Font)              `operators' in the math version `normal' on input line 22.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 23.
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 22.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 23.
+(Font)              `operators' in the math version `bold' on input line 22.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 23.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 22.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 23.
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 22.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 23.
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 22.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 23.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 22.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 23.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 22.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 23.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 22.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 23.
+(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 22.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 23.
+(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 22.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 23.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 22.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 23.
-\c@lstlisting=\count387
-Package hyperref Info: Link coloring ON on input line 23.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 22.
+\c@lstlisting=\count365
+Package hyperref Info: Link coloring ON on input line 22.
 (./thesis.out) (./thesis.out)
-\@outlinefile=\write4
-\openout4 = `thesis.out'.
+\@outlinefile=\write3
+\openout3 = `thesis.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
@@ -989,24 +758,22 @@ File: ./figures/logo.png Graphic file (type bmp)
 
 [1
 
-] (./thesis.toc)
-\tf@toc=\write5
-\openout5 = `thesis.toc'.
+] (./thesis.toc
+
+[1])
+\tf@toc=\write4
+\openout4 = `thesis.toc'.
 
 
 
-[1]
+[2]
 
 [1]
 File: ./figures/热电偶结构示意图.png Graphic file (type bmp)
 <./figures/热电偶结构示意图.png>
 
-Missing character: There is no ⑤ (U+2464) in font [lmroman12-regular]:mapping=tex-text;!
-Missing character: There is no ① (U+2460) in font [lmroman12-regular]:mapping=tex-text;!
 Missing character: There is no ① (U+2460) in font [lmroman12-regular]:mapping=tex-text;!
 Missing character: There is no ② (U+2461) in font [lmroman12-regular]:mapping=tex-text;!
-Missing character: There is no ② (U+2461) in font [lmroman12-regular]:mapping=tex-text;!
-Missing character: There is no ③ (U+2462) in font [lmroman12-regular]:mapping=tex-text;!
 
 
 [2]
@@ -1018,7 +785,7 @@ Missing character: There is no ③ (U+2462) in font [lmroman12-regular]:mapping=
 [5]
 
 [6]
-Overfull \hbox (22.4698pt too wide) in paragraph at lines 294--343
+Overfull \hbox (22.4698pt too wide) in paragraph at lines 293--342
  [][] 
  []
 
@@ -1053,12 +820,80 @@ File: ./figures/显示记录仪表输入端.jpeg Graphic file (type bmp)
 ]
 
 [13]
+File: ./figures/qianban.png Graphic file (type bmp)
+<./figures/qianban.png>
+
 
 [14
 
 ]
+File: ./figures/压力校正曲线.png Graphic file (type bmp)
+<./figures/压力校正曲线.png>
 
-[15
+
+[15]
+
+[16]
+File: ./figures/差压变送器接线图.png Graphic file (type bmp)
+<./figures/差压变送器接线图.png>
+File: ./figures/液位变送器试验流程图.png Graphic file (type bmp)
+<./figures/液位变送器试验流程图.png>
+File: ./figures/输送泵和 SV102 操作界面1.png Graphic file (type bmp)
+<./figures/输送泵和 SV102 操作界面1.png>
+File: ./figures/输送泵和 SV102 操作界面2.png Graphic file (type bmp)
+<./figures/输送泵和 SV102 操作界面2.png>
+
+
+[17
+
+]
+File: ./figures/计量罐液位实验界面.jpeg Graphic file (type bmp)
+<./figures/计量罐液位实验界面.jpeg>
+File: ./figures/计量罐底部排水阀.png Graphic file (type bmp)
+<./figures/计量罐底部排水阀.png>
+
+
+[18]
+
+[19]
+File: ./figures/标尺读数与数显仪读数.png Graphic file (type bmp)
+<./figures/标尺读数与数显仪读数.png>
+
+
+[20]
+
+[21]
+File: ./figures/电磁流量计原理示意图.png Graphic file (type bmp)
+<./figures/电磁流量计原理示意图.png>
+
+
+[22
+
+]
+File: ./figures/液位变送器实验流程图2.png Graphic file (type bmp)
+<./figures/液位变送器实验流程图2.png>
+File: ./figures/输送泵和 SV102 操作界面3.png Graphic file (type bmp)
+<./figures/输送泵和 SV102 操作界面3.png>
+File: ./figures/输送泵和 SV102 操作界面4.png Graphic file (type bmp)
+<./figures/输送泵和 SV102 操作界面4.png>
+File: ./figures/计量罐出口流量控制面板.png Graphic file (type bmp)
+<./figures/计量罐出口流量控制面板.png>
+
+
+[23]
+File: ./figures/输送泵和搅拌釜液位控制面板1.png Graphic file (type bmp)
+<./figures/输送泵和搅拌釜液位控制面板1.png>
+File: ./figures/输送泵和搅拌釜液位控制面板2.png Graphic file (type bmp)
+<./figures/输送泵和搅拌釜液位控制面板2.png>
+
+
+[24]
+
+[25]
+
+[26]
+
+[27
 
 ] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
@@ -1068,15 +903,15 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2020/04/10>
  ***********
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: A3F936569F7BAE5AFAB651EE3CDC7CBB;2697.
+(rerunfilecheck)             Checksum: 54B4ACC403365B7F53602CE140F4D00C;4835.
  ) 
 Here is how much of TeX's memory you used:
- 31106 strings out of 473832
- 683625 string characters out of 5729481
- 1198819 words of memory out of 5000000
- 53622 multiletter control sequences out of 15000+600000
+ 18993 strings out of 473832
+ 403453 string characters out of 5729481
+ 1095185 words of memory out of 5000000
+ 41748 multiletter control sequences out of 15000+600000
  565715 words of font info for 93 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  94i,19n,107p,869b,561s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on thesis.pdf (17 pages).
+Output written on thesis.pdf (30 pages).

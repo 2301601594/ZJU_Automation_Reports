@@ -7,8 +7,7 @@
 \usepackage{makecell}  % 单元格换行
 \usepackage{xcolor}    % 颜色支持
 \usepackage{array}     % 表格列格式
-\usepackage{tikz}
-\usetikzlibrary{shapes, arrows, positioning}
+
 
 
 \setlength{\parindent}{2em} % 控制首行缩进  
@@ -21,7 +20,7 @@
 \makepagestyle{}{\printclassname ~实验报告}
 
 \begin{document}
-\maketitlepage{传感与检测实验}{教10 6005}{董佳泽}{3230104322}{\today}{赵久强} %封面页 
+\maketitlepage{传感与检测实验}{教10 6005、6007}{董佳泽}{3230104322}{\today}{赵久强、曹峥、冯毅萍} %封面页 
 
 \maketoc    %目录页
 
@@ -89,10 +88,10 @@ $$
 \begin{tabular}{|c|c|c|}
 \hline
 始——终               & 导线规格    & 备注        \\ \hline
-标准热电偶－ET3805 输入端⑤  & 配套补偿导线  & 规格二等标准热电偶 \\ \hline
-E 型热电偶－ET3805 输入端① & 配套补偿导线  & 接①中间测量插孔  \\ \hline
-K 型热电偶－ET3805 输入端② & 配套补偿导线  & 接②中间测量插孔  \\ \hline
-普通热电阻－ET3805 输入端③  & 配套热电阻引线 & 四线制接线方式   \\ \hline
+标准热电偶－ET3805 输入端5  & 配套补偿导线  & 规格二等标准热电偶 \\ \hline
+E 型热电偶－ET3805 输入端1 & 配套补偿导线  & 接①中间测量插孔  \\ \hline
+K 型热电偶－ET3805 输入端2 & 配套补偿导线  & 接②中间测量插孔  \\ \hline
+普通热电阻－ET3805 输入端3  & 配套热电阻引线 & 四线制接线方式   \\ \hline
 AC 电源－ET3805 电源插头  & 三芯橡胶护套线 & 电源线，必须接地  \\ \hline
 \end{tabular}
 \end{center}
@@ -446,7 +445,7 @@ $$ E_E(190^\circ\text{C}) \approx 12.70\,\text{mV}, \quad E_E(200^\circ\text{C})
   \item 了解目前主流过程校验仪的功能，并掌握其基本使用方法；
   \item 掌握显示仪表的误差分析及准确度等级判断。
 \end{enumerate}
-\subsubsection{实验仪器设备、装置}
+\subsubsection{实验器材}
 \begin{enumerate}
   \item 被校热电偶温度显示记录仪表一台（\textbf{量程0~1300℃}）
   \item 便携式过程校验仪一台
@@ -574,8 +573,454 @@ $$\gamma = \frac{0.012}{52.41} \times 100\% \approx \mathbf{0.0229\%}$$
 \end{solution}
 \clearpage
 \section{压力、液位、流量实验}
+\subsection{数字式压力校验仪实验}
+\subsubsection{实验目的}
+\begin{enumerate}
+  \item 了解弹簧管压力表的工作原理、构造、装配和调整方法。
+  \item 掌握各类压力仪表与压力变送器的校验方法。
+  \item 了解弹簧管压力表的精度等级划分，机械仪表变差的测定。
+\end{enumerate}
+\subsubsection{实验器材}
+\begin{enumerate}
+  \item 弹簧管压力表 1 只
+  \item 数字式压力校验仪一台
+  
+  图\ref{qianban}为校验仪的前面板示意。
+
+  \begin{enumerate}
+    \item 压力微调机构
+    
+    在校准被校仪表是可以左右旋转压力微调机构，使输出压力达最佳值。
+    \item 手压泵
+    
+    推动手压泵可产生一定的压力值，使用手压泵时，首先了解清楚本仪器与
+被校仪表的测量范围，切忌超过校验仪表与仪器的量程范围！！增压时，应注视
+显示屏的压力变化。当仪器出现嘟嘟声报警时，应立即停止增压，并打开放气阀
+泄压。
+    \item 放气阀
+    
+    放气阀为校验仪提供增压、泄压而设计。增压时，应顺时针方向旋转到底，
+放气阀关闭；泄压时，逆时针方向旋转开启放气阀。
+    \item 压力接头
+    
+    供输入/输出压力用。
+    \item 提手
+    
+    提手供校验仪外出时使用。
+  \end{enumerate}
+
+  \begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.3\textwidth]{qianban.png}
+    \caption{前面板}
+    \label{qianban}
+  \end{figure}
+\end{enumerate}
+
+\subsubsection{实验步骤}
+\textbf{压力表检定一般至少检定十点，这些点应均匀地分布在整个量程范围内。}
+
+了解数字式压力校验仪的特性和优点、技术指标、可校验参数（如压力、电
+流、电压），掌握零点调整、基本参数（比如量程、单位）设定、校表步骤，最
+后用其校定普通压力表。
+
+上行程时，用打气手柄进行充气，当液晶屏显示值接近设定点，可以通过微
+调旋钮调节至工作点。降程时，缓慢的打开放气阀，当接近设定点时，利用微调
+旋钮外旋减压。
+\subsubsection{数据记录与处理}
+\begin{enumerate}
+  \item \textbf{数据记录}
+  \begin{table}[htbp]
+\centering
+\caption{实验数据记录表}
+% 定义列格式：共8列，全部居中，两边及中间都有竖线
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+% 第一行表头
+\multirow{3}{*}{编号} & \multicolumn{2}{c|}{被校压力表读数} & \multicolumn{2}{c|}{标准压力表读数} & \multicolumn{2}{c|}{\multirow{2}{*}{误差/MPa}} & \multirow{3}{*}{变差} \\
+& \multicolumn{2}{c|}{/MPa} & \multicolumn{2}{c|}{/MPa} & \multicolumn{2}{c|}{} & \\
+\cline{2-7} % 绘制中间部分的横线
+% 第二行表头（升程/降程）
+& 升程 & 降程 & 升程 & 降程 & 升程 & 降程 & \\
+\hline
+1 & 0.06 & 0.06 & 0.0626 & 0.0515 & -0.0026 & 0.0085 & 0.0111 \\
+\hline
+2 & 0.12 & 0.12 & 0.1214 & 0.1123 & -0.0014 & 0.0077 & 0.0091 \\
+\hline
+3 & 0.18 & 0.18 & 0.1796 & 0.1691 & 0.0004 & 0.0109 & 0.0105 \\
+\hline
+4 & 0.24 & 0.24 & 0.2393 & 0.2311 & 0.0007 & 0.0089 & 0.0082 \\
+\hline
+5 & 0.30 & 0.30 & 0.2972 & 0.2885 & 0.0028 & 0.0115 & 0.0087 \\
+\hline
+6 & 0.36 & 0.36 & 0.3572 & 0.3493 & 0.0028 & 0.0107 & 0.0079 \\
+\hline
+7 & 0.42 & 0.42 & 0.4162 & 0.4065 & 0.0038 & 0.0135 & 0.0097 \\
+\hline
+8 & 0.48 & 0.48 & 0.4736 & 0.4670 & 0.0064 & 0.0130 & 0.0066 \\
+\hline
+9 & 0.54 & 0.54 & 0.5341 & 0.5278 & 0.0059 & 0.0122 & 0.0063 \\
+\hline
+10 & 0.60 & 0.60 & 0.5907 & 0.5870 & 0.0093 & 0.0130 & 0.0037 \\
+\hline
+\end{tabular}
+\end{table}
+ \item \textbf{精确度等级确定}
+ 
+ 比较所有数据，可以得到最大绝对误差 $\Delta_{max} = 0.0135 \text{ MPa}$。据此计算最大引用误差：
+ $$\gamma = \frac{0.0135}{0.60} \times 100\% = 2.25\%$$
+ 根据国家标准，该仪表的精确度等级为2.5级。
+
+ \item \textbf{校正曲线}
+     \begin{figure}[!htbp]
+        \centering
+        \includegraphics[width=0.8\textwidth]{压力校正曲线.png}
+        \caption{压力校正曲线}
+    \end{figure}
+\end{enumerate}
 
 
+\subsubsection{思考题}
+\begin{problem}
+弹簧管压力表为什么要在测量上限处进行耐压检定？
+\end{problem}
+\begin{solution}
+主要有两方面原因：
+\begin{enumerate}
+    \item \textbf{消除弹性后效}：通过在测量上限受压，可以让弹簧管的材料微观结构产生必要的应力松弛，消除弹性滞后和后效现象，使其弹性特性趋于稳定，从而保证测量的重复性。
+    \item \textbf{检查耐压强度与密封性}：验证弹簧管及其焊接部位在承受最大工作压力时，是否会出现泄漏、破裂或发生永久性的塑性变形。
+\end{enumerate}
+\end{solution}
+
+\begin{problem}
+检定装置在校验压力表时会带来哪些附加误差？
+\end{problem}
+\begin{solution}
+主要包含以下几类附加误差：
+\begin{enumerate}
+    \item \textbf{标准器误差}：标准表或标准源自身精度等级带来的系统误差。
+    \item \textbf{液柱高度差误差}：当被检表与标准表安装高度不同时，传压介质（特别是油介质）的重力会产生附加压力差。
+    \item \textbf{环境误差}：环境温度偏离标准温度（$20\pm 5^\circ\text{C}$）时，会导致弹性模量变化，引起温漂。
+    \item \textbf{读数误差}：观察者视线未与表盘垂直产生的视差，以及指针估读时的随机误差。
+\end{enumerate}
+\end{solution}
+
+\clearpage
+
+\subsection{液位变送器仪表精度校验实验}
+\subsubsection{实验目的}
+\begin{enumerate}
+  \item 通过实验了解液位测量的基本方法、工作原理及使用与校验方法；
+  \item 仪表误差分析方法；
+  \item 了解差压变送器的工作原理及使用方法；
+  \item 了解零点迁移、满度调校等基本概念；
+\end{enumerate}
+\subsubsection{实验器材}
+CS1100 过程控制实验装置。
+\subsubsection{实验原理}
+CS1100 过程控制实验装置对象系统包含有：两个液位计量罐、一个温度搅
+拌罐，一个流量计量罐，一个储水箱。系统动力支路：由循环水泵、电动调节阀、
+电动球阀等组成；检测变送和执行元件有：差压变送器、压力表、电磁流量计、
+电动调节阀等。
+
+CS1100 装置的控制系统配备西门子触摸屏作为人机操作界面。通过触摸屏
+控制面板上的操作按键直接控制水泵、开关阀等设备，调节SV、MV、PID 等控
+制参数，也可以通过上位机组态软件进行监控，观察被控参数的实时曲线、历史
+曲线，SV 设定值、PV 测量值、OP 输出值、各实验都设有动态流程图、及被测
+参数动态显示及变化棒图显示系统流程图，根据实际需要实现编辑、下载、打印
+等功能。
+
+本次实验使用差压变送器来检测液位高度，并与实际液位标尺值进行比较，
+计算出差压变送器的测量精度等性能指标。
+
+差压变送器的工作原理：当被测介质（液体）的压力作用于传感器时，压力
+传感器将压力信号转换成电信号，经归一化差分放大和输V/A 电压、电流转换
+器，转换成与被测介质（液体）的液位压力成线性对应关系的4~20mA 标准电流
+输出信号。接线如图\ref{chayabiansongqi}所示。
+  \begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.3\textwidth]{差压变送器接线图.png}
+    \caption{差压变送器接线图}
+    \label{chayabiansongqi}
+  \end{figure}
+
+液位变送器实验的流程图如下：
+  \begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{液位变送器试验流程图.png}
+    \caption{液位变送器示意图}
+  \end{figure}
+
+\subsubsection{实验步骤}
+\begin{enumerate}
+  \item 启动1\#输送泵，打开SV102，,确保进水手阀畅通，将2\#计量罐加满水。
+  
+  \begin{figure}[!htbp]
+        \centering
+        \begin{minipage}[b]{0.45\linewidth}
+            \centering
+            \includegraphics[width=0.9\textwidth]{输送泵和 SV102 操作界面1.png}
+             
+        \end{minipage}%
+        \begin{minipage}[b]{0.45\linewidth}
+            \centering
+            \includegraphics[width=0.9\textwidth]{输送泵和 SV102 操作界面2.png}    
+        \end{minipage}
+        \caption{1\#输送泵和SV102 操作界面}
+    \end{figure}
+
+  \item 关停1\#输送泵，点击最下行菜单栏“2\#计量罐液位”，进入实验画面，记录当前测量值和标尺值。
+  
+      \begin{figure}[!htbp]
+        \centering
+        \includegraphics[width=0.8\textwidth]{计量罐液位实验界面.jpeg}
+        \caption{2\#计量罐液位实验界面}
+    \end{figure}
+
+  \item 手动调节2\#计量罐底部排水阀门开度，缓慢降低液柱，在全量程范围内均匀选取10 个校验点，记录标尺值和液位测量值，并在表中记录实验数据。
+    \begin{figure}[!htbp]
+        \centering
+        \includegraphics[width=0.7\textwidth]{计量罐底部排水阀.png}
+        \caption{计量罐底部排水阀}
+    \end{figure}
+\end{enumerate}
+\subsubsection{数据记录与处理}
+\begin{enumerate}
+  \item \textbf{数据记录}
+  液位显示零点读数为0.5
+\begin{table}[htbp]
+\centering
+\caption{液位测量数据记录表}
+\resizebox{\textwidth}{!}{ 
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+    \hline
+     & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+    \hline
+    标尺读数 & 22.00 & 20.00 & 18.00 & 16.00 & 14.00 & 12.00 & 10.00 & 8.00 & 6.00 & 4.00 \\
+    \hline
+    液位显示值 & 21.9 & 19.9 & 18.1 & 16.1 & 14.2 & 12.1 & 10.4 & 8.3 & 6.2 & 4.5 \\
+    \hline
+    校准后液位显示值 & 21.4 & 19.4 & 17.6 & 15.6 & 13.7 & 11.6 & 9.9 & 7.8 & 5.7 & 4 \\
+    \hline
+    相对误差 & 2.80\% & 3.09\% & 2.27\% & 2.56\% & 2.19\% & 3.45\% & 1.01\% & 2.56\% & 5.26\% & 0.00\% \\
+    \hline
+    \end{tabular}
+}
+\end{table}
+  \item \textbf{参数曲线}
+      \begin{figure}[!htbp]
+        \centering
+        \includegraphics[width=0.8\textwidth]{标尺读数与数显仪读数.png}
+        \caption{标尺读数与数显仪读数曲线}
+    \end{figure}
+  \item \textbf{误差分析}
+  
+  求取原始数据的曲线可得斜率$k=0.966$，这说明传感器不仅存在零点漂移的问题，还存在灵敏度偏小的问题。
+
+  因此如果后续要进行进一步校准，应当对于斜率也进行校准。
+  
+\end{enumerate}
+\subsubsection{思考题}
+\begin{problem}
+差压变送器的引压点对测量的结果有无影响？什么是正迁移和负迁移？
+如何确定引压点的位置？
+\end{problem}
+\begin{solution}
+\begin{enumerate}
+    \item \textbf{引压点的影响}：有影响。引压点与变送器安装位置的高度差会形成液柱，产生附加的静压力（$\rho g h$），导致测量结果偏大或偏小，因此必须通过“零点迁移”来消除。
+    \item \textbf{正迁移与负迁移}：
+    \begin{itemize}
+        \item \textbf{正迁移}：当变送器安装位置低于取压点（敞口容器测量），正压侧受液柱压力使得测量值偏大，需要将测量范围向正方向移动（扣除固定静压），称为正迁移。
+        \item \textbf{负迁移}：当负压侧充满了隔离液（如密闭容器带隔离液测量），负压侧压力大于正压侧液柱压力，使得差压为负值，需要将测量范围向负方向移动，称为负迁移。
+    \end{itemize}
+    \item \textbf{引压点位置确定原则}：
+    \begin{itemize}
+        \item \textbf{测气体}：引压点在管道上半部（防止积液）。
+        \item \textbf{测液体}：引压点在管道下半部与水平中心线成 $0^\circ \sim 45^\circ$ 夹角范围内（防止积气，且避开底部沉淀）。
+        \item \textbf{测蒸汽}：引压点在管道上半部或侧面，且需加装冷凝罐。
+    \end{itemize}
+\end{enumerate}
+\end{solution}
+
+\begin{problem}
+与敞开容器相比密闭容器在测液位时需注意什么问题？
+\end{problem}
+\begin{solution}
+密闭容器测量液位时，液体表面上方存在气相静压力，不能直接通大气，需注意以下问题：
+\begin{enumerate}
+    \item \textbf{气相补偿}：差压变送器的负压室（低压侧）必须通过引压管连接到容器的气相空间，以抵消气相压力对测量的影响（$\Delta P = P_{\text{底部}} - P_{\text{顶部}} = \rho g h$）。
+    \item \textbf{冷凝液的影响（干腿 vs 湿腿）}：
+    \begin{itemize}
+        \item 如果气相介质不冷凝（或无腐蚀），可使用空管连接（干腿）。
+        \item 如果气相介质易冷凝（如蒸汽），负压侧引压管内会积聚液体，此时必须预先灌满隔离液，并因此导致负压侧压力常大于正压侧，必须进行\textbf{100\% 负迁移}。
+    \end{itemize}
+\end{enumerate}
+\end{solution}
+
+\clearpage
+\subsection{电磁流量计校验实验}
+\subsubsection{实验目的}
+\begin{enumerate}
+  \item 了解电磁流量计的工作原理、外形构造及使用方法；
+  \item 掌握流量仪表检定的基本方法；
+  \item 掌握流量检测仪表精度等级的校验方法。
+\end{enumerate}
+\subsubsection{实验器材}
+CS1100 过程控制实验装置。
+\subsubsection{实验原理}
+电磁流量计是根据法拉第电磁感应定律进行流量测量的流量计。当导体在磁
+场中作切割磁力线运动时，在导体中会产生感应电势，感应电势的大小与导体在
+磁场中的有效长度及导体在磁场中作垂直于磁场方向运动的速度成正比。同理，
+导电流体在磁场中作垂直方向流动而切割磁感应力线时，也会在管道两边的电极
+上产生感应电势。感应电势的方向由右手定则判定，感应电势的大小由下式确定：
+$$Ex=BDv$$
+式中$Ex$为感应电动势；$B$为磁感应强度；$D$为管道内径；$v$为液体的平均流速。
+    \begin{figure}[!htbp]
+        \centering
+        \includegraphics[width=0.5\textwidth]{电磁流量计原理示意图.png}
+        \caption{电磁流量计原理示意图}
+    \end{figure}
+
+    然而体积流量$Q_v$等于流体的流速$v$与与管道截面积$\pi D^2/4$的乘积，可得：
+  $$Q_v=(\pi D /4B) \times Ex$$
+
+  由上式可知，在管道直径$D$己定且保持磁感应强度$B$不变时，被测体积流量
+与感应电势呈线性关系。若在管道两侧各插入一根电极，就可引入感应电势$Ex$测量此电势的大小，就可求得体积流量。
+
+据法拉第电磁感应原理，在与测量管轴线和磁力线相垂直的管壁上安装了一
+对检测电极，当导电液体沿测量管轴线运动时，导电液体切割磁力线产生感应电
+势，此感应电势由两个检测电极检出，数值大小与流速成正比例，其值为：
+$$E=B \cdot v \cdot D \cdot K$$
+
+传感器将感应电势$E$作为流量信号，传送到转换器，经放大，变换滤波等信号
+处理后，成为标准的变送信号输出。
+流量计校验实验的流程图如下：
+    \begin{figure}[!htbp]
+        \centering
+        \includegraphics[width=0.5\textwidth]{液位变送器实验流程图2.png}
+        \caption{液位变送器实验流程图}
+    \end{figure}
+\subsubsection{实验步骤}
+\begin{enumerate}
+  \item 启动1\#输送泵，打开SV102，,确保进水手阀畅通，向2\#计量罐加水。
+    \begin{figure}[!htbp]
+        \centering
+        \begin{minipage}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.9\textwidth]{输送泵和 SV102 操作界面3.png}
+             
+        \end{minipage}%
+        \begin{minipage}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.9\textwidth]{输送泵和 SV102 操作界面4.png}
+             
+        \end{minipage}
+        \caption{1\#输送泵和SV102 操作界面}
+    \end{figure}
+  \item 确认“2\#计量罐出口流量控制”为手动状态，在控制面板中将MV 设置为100\%，使流入温度搅拌罐的流量最大。等待搅拌罐灌满水，自动停止注水。
+      \begin{figure}[!htbp]
+        \centering
+        \includegraphics[width=0.4\textwidth]{计量罐出口流量控制面板.png}
+        \caption{2\#计量罐出口流量控制面板}
+    \end{figure}
+  \item 全开3\#计量罐底部排水阀，启动2\#输送泵。确认“搅拌釜液位控制”为手动状态，在控制面板中将MV 设置为20\%，流量稳定后读取电磁流量计的读数。
+  
+      \begin{figure}[!htbp]
+        \centering
+        \begin{minipage}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.9\textwidth]{输送泵和搅拌釜液位控制面板1.png}
+             
+        \end{minipage}%
+        \begin{minipage}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.9\textwidth]{输送泵和搅拌釜液位控制面板2.png}
+             
+        \end{minipage}
+        \caption{2\#输送泵和搅拌釜液位控制面板}
+    \end{figure}
+  \item 迅速关断3\#计量罐底部排水阀同时开始计时，并记录当时液位高度值。20s 后停止计时，同时记录当时液位高度值。完成后尽快停止2\#输送泵，以防止搅拌罐液位过低。
+  \item 将“搅拌釜液位控制”MV 值设置为40\%，60\%，重复步骤3、4。（受搅拌罐容量限制，MV 为40\%时计时25s，MV 为60\%时计时20s）
+
+\end{enumerate}
+\subsubsection{数据记录与处理}
+计算流量通过液面高度的变化求得。
+
+\begin{table}[htbp]
+\centering
+\caption{流量测量实验数据记录表}
+% 定义列格式：左对齐(描述) + 3个居中(数据)，带竖线
+\begin{tabular}{|l|c|c|c|}
+\hline
+ & 1 & 2 & 3 \\
+\hline
+搅拌釜液位控制 MV 值 & 20 & 40 & 60 \\
+\hline
+计量罐液位起始高度 (cm) & 0.5 & 0.8 & 2 \\
+\hline
+计量罐液位最终高度 (cm) & 8.1 & 10 & 10.8 \\
+\hline
+时间长度 (s) & 30 & 25 & 20 \\
+\hline
+计算流量 (L/min) & 3.192 & 4.6368 & 5.544 \\
+\hline
+标准流量 (L/min) & 3 & 4.3 & 5.3 \\
+\hline
+电磁流量计 (L/min) & 3.04 & 4.28 & 5.28 \\
+\hline
+误差 & 0.04 & 0.02 & 0.02 \\
+\hline
+\end{tabular}
+\end{table}
+
+3\#计量罐的内长21cm，内宽10cm，溢流管外径2cm。
+\subsubsection{思考题}
+这是为您整理的关于电磁流量计及实验误差分析的标准解答，可以直接填入 LaTeX 的 solution 环境中。
+
+1. LaTeX 代码
+Code snippet
+
+\begin{problem}
+查找资料，了解电磁流量计的测量范围、使用的介质、精度等级、对测
+量条件的要求等。
+\end{problem}
+\begin{solution}
+基于法拉第电磁感应定律，电磁流量计的特性如下：
+\begin{enumerate}
+    \item \textbf{测量范围}：量程比极宽（通常可达 10:1 至 100:1），适应流速范围通常在 $0.1\,\text{m/s} \sim 10\,\text{m/s}$ 之间。
+    \item \textbf{使用介质}：必须是\textbf{导电液体}（电导率需 $> 5\,\mu\text{S/cm}$），如水、酸碱溶液、泥浆等。不能测量气体、蒸汽、油品或纯净水。
+    \item \textbf{精度等级}：较高，通常为 0.5 级，高精度产品可达 0.2 级。
+    \item \textbf{测量条件要求}：
+    \begin{itemize}
+        \item \textbf{满管要求}：测量管道必须完全充满液体。
+        \item \textbf{直管段}：为保证流场稳定，通常要求上游直管段长度 $\ge 5D$，下游 $\ge 3D$（D为管径）。
+        \item \textbf{接地}：流量计外壳及介质必须良好接地，以消除干扰电压。
+    \end{itemize}
+\end{enumerate}
+\end{solution}
+
+\begin{problem}
+通过实验分析该装置检定流量仪表时误差来源有那些？如何避免与消
+除？
+\end{problem}
+\begin{solution}
+结合容积法（计量罐）检定电磁流量计的实验过程，分析如下：
+\begin{enumerate}
+    \item \textbf{误差来源}：
+    \begin{itemize}
+        \item \textbf{标准器误差}：计量罐的刻度尺分辨率有限（读数误差），以及秒表计时的反应滞后（时间测量误差）。
+        \item \textbf{启停同步误差}：液位开始变化的瞬间与秒表计时的启动瞬间无法完全同步（动态误差）。
+        \item \textbf{流场干扰}：泵的脉动导致流速不稳定，或管道内存在气泡（电磁流量计最忌讳气泡）。
+    \end{itemize}
+    \item \textbf{避免与消除方法}：
+    \begin{itemize}
+        \item \textbf{延长测量时间}：增加计量时间（如 $>60$s），降低启停计时误差对总结果的权重。
+        \item \textbf{保证直管段}：确保流量计前后有足够的直管段，安装整流器以稳定流场。
+        \item \textbf{多次测量求平均}：在同一流量点进行多次测量取平均值，消除随机误差。
+        \item \textbf{静态读数法}：先切换阀门将流体引入计量罐，待液面完全平静后再读取高度，避免液面波动带来的读数误差。
+    \end{itemize}
+\end{enumerate}
+\end{solution}
 \clearpage
 \section{智能产线传感与检测实验}
 
